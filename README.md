@@ -1,4 +1,4 @@
-# Wrate Bloody
+# Wrate Bloody [![Build Status](https://travis-ci.org/mysterycommand/wrateblody.app.png?branch=master)](https://travis-ci.org/mysterycommand/wrateblody.app)
 ###### a [Write Bloody](http://writebloody.com/) (w)rating app
 
 ---
