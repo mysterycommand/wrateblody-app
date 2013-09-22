@@ -1,0 +1,103 @@
+
+// {
+//   "status": "ok",
+//   "count": 1,
+//   "count_total": 1,
+//   "pages": 1,
+//   "posts": [
+//     {
+//       "id": 1,
+//       "type": "post",
+//       "slug": "hello-world",
+//       "url": "http:\/\/localhost\/wordpress\/?p=1",
+//       "title": "Hello world!",
+//       "title_plain": "Hello world!",
+//       "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!<\/p>\n",
+//       "excerpt": "Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!\n",
+//       "date": "2009-11-11 12:50:19",
+//       "modified": "2009-11-11 12:50:19",
+//       "categories": [],
+//       "tags": [],
+//       "author": {
+//         "id": 1,
+//         "slug": "admin",
+//         "name": "admin",
+//         "first_name": "",
+//         "last_name": "",
+//         "nickname": "",
+//         "url": "",
+//         "description": ""
+//       },
+//       "comments": [
+//         {
+//           "id": 1,
+//           "name": "Mr WordPress",
+//           "url": "http:\/\/wordpress.org\/",
+//           "date": "2009-11-11 12:50:19",
+//           "content": "<p>Hi, this is a comment.<br \/>To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.<\/p>\n",
+//           "parent": 0
+//         }
+//       ],
+//       "comment_count": 1,
+//       "comment_status": "open"
+//     }
+//   ]
+// }
+
+{
+    "status": "ok",
+    "count": 3,
+    "count_total": 3,
+    "pages": 1,
+    "posts": [
+        {
+            "id": 0,
+            "slug": "songs-from-under-the-river-early-and-new-work",
+            "url": "http:\/\/writebloody.com\/shop\/products\/songs-from-under-the-river-early-and-new-work\/",
+            "title": "Songs From Under The River: Early And New Work By Anis Mojgani",
+            "title_plain": "Songs From Under The River: Early And New Work By Anis Mojgani",
+            "content": "<p>Blah blah blabla.</p>",
+            "excerpt": "Blah&hellip;",
+            "date": "2009-11-11 12:50:19",
+            "modified": "2009-11-11 12:50:19",
+            "categories": [],
+            "tags": [],
+            "author": {},
+            "comments": [],
+            "comment_count": 0,
+            "comment_status": "closed"
+        },{
+            "id": 1,
+            "slug": "the-undisputed-greatest-writer-of-all-time",
+            "url": "http:\/\/writebloody.com\/shop\/products\/the-undisputed-greatest-writer-of-all-time\/",
+            "title": "The Undisputed Greatest Writer Of All Time By Beau Sia",
+            "title_plain": "The Undisputed Greatest Writer Of All Time By Beau Sia",
+            "content": "<p>Blah blah blabla.</p>",
+            "excerpt": "Blah&hellip;",
+            "date": "2009-11-11 12:50:19",
+            "modified": "2009-11-11 12:50:19",
+            "categories": [],
+            "tags": [],
+            "author": {},
+            "comments": [],
+            "comment_count": 0,
+            "comment_status": "closed"
+        },{
+            "id": 2,
+            "slug": "amulet-by-jason-bayani",
+            "url": "http:\/\/writebloody.com\/shop\/products\/amulet-by-jason-bayani\/",
+            "title": "Amulet By Jason Bayani",
+            "title_plain": "Amulet By Jason Bayani",
+            "content": "<p>Blah blah blabla.</p>",
+            "excerpt": "Blah&hellip;",
+            "date": "2009-11-11 12:50:19",
+            "modified": "2009-11-11 12:50:19",
+            "categories": [],
+            "tags": [],
+            "author": {},
+            "comments": [],
+            "comment_count": 0,
+            "comment_status": "closed"
+        }
+    ]
+}

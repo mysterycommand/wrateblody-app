@@ -1,9 +1,10 @@
 # Wrate Bloody [![Build Status](https://travis-ci.org/mysterycommand/wrateblody.app.png?branch=master)](https://travis-ci.org/mysterycommand/wrateblody.app)
-###### a [Write Bloody](http://writebloody.com/) (w)rating app
+#### a [Write Bloody](http://writebloody.com/) (w)rating app
 
 ---
 
 ##### Dev. Notes:
+###### Getting Started
 1. Start with Yeoman's webapp generator (minus sass-bootstrap).
 2. Install usereplace via `npm install grunt-usereplace --save-dev`
 3. Install normalize-css via `bower install normalize-css --save`
@@ -13,3 +14,7 @@
 7. Push up to GitHub.
 8. Setup the Travis CI hook.
 9. Run the travis-ci:gh-pages generator.
+
+###### Dummy Data
+1. Assume we'll use something like [JSON API](http://wordpress.org/plugins/json-api/).
+2. Build up a dummy data file, in `scripts/data/products.json`.
