@@ -20,7 +20,7 @@ define([
     'use strict';
 
     return function() {
-        var IS_TOUCH = window.Modernizr.touch;
+        // var IS_TOUCH = window.Modernizr.touch;
     };
 
 });
