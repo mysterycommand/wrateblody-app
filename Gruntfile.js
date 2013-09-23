@@ -205,6 +205,7 @@ module.exports = function (grunt) {
                     // },
                     include: '../bower_components/requirejs/require',
                     mainConfigFile: '<%= yeoman.app %>/scripts/config.js',
+                    paths: {'templates': '../../.tmp/scripts/templates'},
                     out: '<%= yeoman.dist %>/scripts/app.min.js'
                 }
             }
@@ -367,8 +368,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts/',
-                    // dest: '.tmp/scripts/', // doesn't work becuase require task can't find .tmp/
-                    dest: '<%= yeoman.app %>/scripts/', // works, but makes for ugly app/ source
+                    dest: '.tmp/scripts/',
                     src: [
                         'templates/**/*.hbs'
                     ],
