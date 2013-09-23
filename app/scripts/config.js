@@ -6,7 +6,7 @@ require.config({
         text: '../bower_components/requirejs-text/text'
     },
     shim: {
-        'handlebars': {
+        handlebars: {
             exports: 'Handlebars'
         }
     }
