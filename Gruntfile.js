@@ -367,7 +367,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts/',
-                    dest: '.tmp/scripts/',
+                    dest: '<%= yeoman.app %>/scripts/',
                     src: [
                         'templates/**/*.hbs'
                     ],
