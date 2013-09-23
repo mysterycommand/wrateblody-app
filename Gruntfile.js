@@ -196,14 +196,14 @@ module.exports = function (grunt) {
                     // http://requirejs.org/docs/errors.html#sourcemapcomments
                     preserveLicenseComments: false,
                     useStrict: true,
-                    // wrap: true, // https://github.com/yeoman/generator-backbone/issues/112
+                    wrap: true,
                     // uglify2: {}, // https://github.com/mishoo/UglifyJS2
                     // uglify: {
                     //     // beautify: true,
                     //     /** 'mangle' removes names from functions, which CoreObject uses for more useful toString. **/
                     //     'no_mangle': true
                     // },
-                    include: '../bower_components/requirejs/require',
+                    include: '../bower_components/almond/almond',
                     mainConfigFile: '<%= yeoman.app %>/scripts/config.js',
                     paths: {'templates': '../../.tmp/scripts/templates'},
                     out: '<%= yeoman.dist %>/scripts/app.min.js'
