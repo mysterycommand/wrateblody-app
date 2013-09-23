@@ -10,10 +10,12 @@
 define([
 
     // 'jquery'
+    'text!data/sample.json'
 
 ], function (
 
     // $
+    data
 
 ) {
 
@@ -21,6 +23,7 @@ define([
 
     return function() {
         // var IS_TOUCH = window.Modernizr.touch;
+        data = JSON.parse(data);
     };
 
 });
