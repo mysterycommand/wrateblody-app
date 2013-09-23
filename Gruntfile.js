@@ -367,7 +367,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts/',
-                    dest: '<%= yeoman.app %>/scripts/',
+                    // dest: '.tmp/scripts/', // doesn't work becuase require task can't find .tmp/
+                    dest: '<%= yeoman.app %>/scripts/', // works, but makes for ugly app/ source
                     src: [
                         'templates/**/*.hbs'
                     ],
