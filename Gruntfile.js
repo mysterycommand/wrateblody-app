@@ -196,7 +196,7 @@ module.exports = function (grunt) {
                     // http://requirejs.org/docs/errors.html#sourcemapcomments
                     preserveLicenseComments: false,
                     useStrict: true,
-                    wrap: true,
+                    // wrap: true, // https://github.com/yeoman/generator-backbone/issues/112
                     // uglify2: {}, // https://github.com/mishoo/UglifyJS2
                     // uglify: {
                     //     // beautify: true,
