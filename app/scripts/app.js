@@ -7,14 +7,20 @@
  */
 /** ================================================================================================================ **/
 
+/* jshint expr: true */
+
 define([
 
-    // 'jquery'
+    'jquery',
+    'templates/tbody',
+    'templates/tr',
     'text!data/sample.json'
 
 ], function (
 
-    // $
+    $,
+    tbody,
+    tr,
     data
 
 ) {
@@ -24,6 +30,16 @@ define([
     return function() {
         // var IS_TOUCH = window.Modernizr.touch;
         data = JSON.parse(data);
+
+        var hash = {},
+            letter = '',
+            $table = $('#js-table');
+
+        data.posts.forEach(function(post) {
+            letter = post.title.charAt(0).toUpperCase();
+            hash[letter] || (hash[letter] = []);
+            hash[letter].push(post);
+        });
     };
 
 });

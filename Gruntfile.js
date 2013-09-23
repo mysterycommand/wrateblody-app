@@ -48,6 +48,10 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            },
+            handlebars: {
+                files: ['<%= yeoman.app %>/scripts/templates/**/*.hbs'],
+                tasks: ['handlebars']
             }
         },
         connect: {
@@ -331,16 +335,19 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'compass',
+                'handlebars',
                 'coffee:dist',
                 'copy:styles'
             ],
             test: [
                 'coffee',
+                'handlebars',
                 'copy:styles'
             ],
             dist: [
                 'coffee',
                 'compass',
+                'handlebars',
                 'copy:styles',
                 'imagemin',
                 'svgmin',
@@ -353,6 +360,26 @@ module.exports = function (grunt) {
             },
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/config.js'
+            }
+        },
+        handlebars: {
+            compile: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/scripts/',
+                    dest: '.tmp/scripts/',
+                    src: [
+                        'templates/**/*.hbs'
+                    ],
+                    ext: '.js',
+                    rename: function(dest, src) {
+                        return dest + src.replace('_', '');
+                    }
+                }],
+                options: {
+                    namespace: false,
+                    amd: true
+                }
             }
         }
     });
