@@ -2,10 +2,10 @@
   "name": "wratebloody-app",
   "version": "0.0.0",
   "dependencies": {
-    "handlebars": "~1.0.0",
     "jquery": "~1.10.2",
     "modernizr": "~2.6.2",
-    "normalize-css": "~2.1.3"
+    "normalize-css": "~2.1.3",
+    "handlebars.js": "https://github.com/wycats/handlebars.js.git#0fe78f379ab85e586381e167aecd7d5527984697"
   },
   "devDependencies": {
     "almond": "~0.2.6",

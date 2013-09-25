@@ -1,4 +1,5 @@
-tbody>tr>th {
+tbody { position: relative; }
+tbody th {
     background: purple;
     position: -webkit-sticky;
     position: -moz-sticky;

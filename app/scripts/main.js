@@ -27,10 +27,6 @@ require([
         delete window.$;
     }
 
-    if (window.Handlebars) {
-        delete window.Handlebars;
-    }
-
     $(app);
 
 });
