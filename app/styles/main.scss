@@ -1,6 +1,6 @@
-tbody { position: relative; }
-tbody th {
+h3 {
     background: purple;
+    margin: 0;
     position: -webkit-sticky;
     position: -moz-sticky;
     position: -ms-sticky;
@@ -8,3 +8,17 @@ tbody th {
     position: sticky;
     top: 0;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+section>ul>li {
+    border-bottom: 1px solid orange;
+    &:last-child { border-bottom: none; }
+}
+
+ul ul,
+li li { display: inline-block; }

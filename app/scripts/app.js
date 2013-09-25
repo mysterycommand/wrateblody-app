@@ -11,21 +11,46 @@
 
 define([
 
+    'handlebars',
     'jquery',
-    'templates/tbody',
-    'templates/tr',
-    'text!data/sample.json'
+    'templates/section',
+    'text!data/sample.json',
+
+    // load partials last
+    'templates/li'
 
 ], function (
 
+    Handlebars,
     $,
-    tbody,
-    tr,
+    section,
     data
 
 ) {
 
     'use strict';
+
+    Handlebars.registerHelper('times', function(n, block) {
+        var str = '',
+            i;
+        for (i = 0; i < n; ++i) {
+            str += block.fn(i);
+        }
+        return str;
+    });
+
+    Handlebars.registerHelper('gt', function (value, test, block) {
+        console.log(value, test, block);
+        if (value > test) {
+            return block.fn(this);
+        } else {
+            return block.inverse(this);
+        }
+    });
+
+    Handlebars.logger.log = function() {
+        console.log(arguments);
+    };
 
     return function() {
         // var IS_TOUCH = window.Modernizr.touch;
@@ -33,7 +58,7 @@ define([
 
         var hash = {},
             letter = '',
-            $table = $('#js-table');
+            $main = $('#js-main');
 
         data.posts.forEach(function(post) {
             post.stars = Math.random() * 5 | 0;
@@ -43,7 +68,7 @@ define([
         });
 
         Object.keys(hash).forEach(function(key) {
-            $table.append(tbody({alpha: key, titles: hash[key]}));
+            $main.append(section({alpha: key, titles: hash[key]}));
         });
     };
 
