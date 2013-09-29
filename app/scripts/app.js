@@ -132,21 +132,57 @@ define([
                     if (titleA < titleB) { return -1; }
                     return 0;
                 });
-                $main.append(booksByTitleSection({heading: key, content: bookTitleHash[key]}));
+                // $main.append(booksByTitleSection({heading: key, content: bookTitleHash[key]}));
             });
 
-        // keys = Object.keys(personNameHash);
-        // keys.sort()
-        //     .forEach(function(key) {
-        //         personNameHash[key].sort(function(a, b) {
-        //             var sortNameA = a.sortName;
-        //             var sortNameB = b.sortName;
-        //             if (sortNameA > sortNameB) { return 1; }
-        //             if (sortNameA < sortNameB) { return -1; }
-        //             return 0;
-        //         });
-        //         $main.append(peopleByLastNameSection({heading: key, content: personNameHash[key]}));
-        //     });
+        keys = Object.keys(personNameHash);
+        keys.sort()
+            .forEach(function(key) {
+                personNameHash[key].sort(function(a, b) {
+                    var sortNameA = a.sortName;
+                    var sortNameB = b.sortName;
+                    if (sortNameA > sortNameB) { return 1; }
+                    if (sortNameA < sortNameB) { return -1; }
+                    return 0;
+                });
+                // $main.append(peopleByLastNameSection({heading: key, content: personNameHash[key]}));
+            });
+
+        $('#js-footer-nav')
+            .on('click', 'a', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                $main.empty();
+
+                switch (this.hash) {
+                case '#peopleAZ':
+                    Object.keys(bookTitleHash)
+                        .sort()
+                        .forEach(function(key) {
+                            $main
+                                .append(booksByTitleSection({
+                                    heading: key,
+                                    content: bookTitleHash[key]
+                                }));
+                        });
+                    break;
+                case '#booksAZ':
+                    Object.keys(personNameHash)
+                        .sort()
+                        .forEach(function(key) {
+                            $main
+                                .append(peopleByLastNameSection({
+                                    heading: key,
+                                    content: personNameHash[key]
+                                }));
+                        });
+                    break;
+                }
+            })
+            .find('a')
+            .first()
+            .click();
     };
 
 });
