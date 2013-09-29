@@ -14,6 +14,7 @@ require.config({
     paths: {
         handlebars: '../bower_components/handlebars.js/dist/handlebars.runtime',
         jquery: '../bower_components/jquery/jquery',
+        // lodash: '../bower_components/lodash/dist/lodash',
         text: '../bower_components/requirejs-text/text'
     },
     shim: {}

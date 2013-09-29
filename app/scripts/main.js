@@ -10,11 +10,13 @@
 require([
 
     'jquery',
+    // 'lodash',
     'app'
 
 ], function (
 
     $,
+    // _,
     app
 
 ) {
@@ -26,6 +28,11 @@ require([
         delete window.jQuery;
         delete window.$;
     }
+
+    // if (window._) {
+    //     window._.noConflict();
+    //     delete window._;
+    // }
 
     $(app);
 

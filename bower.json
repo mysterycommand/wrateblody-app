@@ -5,7 +5,8 @@
     "jquery": "~1.10.2",
     "modernizr": "~2.6.2",
     "normalize-css": "~2.1.3",
-    "handlebars.js": "https://github.com/wycats/handlebars.js.git#0fe78f379ab85e586381e167aecd7d5527984697"
+    "handlebars.js": "https://github.com/wycats/handlebars.js.git#0fe78f379ab85e586381e167aecd7d5527984697",
+    "lodash": "~2.1.0"
   },
   "devDependencies": {
     "almond": "~0.2.6",

@@ -5,24 +5,24 @@
     "pages": 1,
     "posts": [
         {
-            "id": "AL",
-            "title": "Alabama",
-            "author": "Abraham Lincoln"
-        },
-        {
             "id": "AK",
             "title": "Alaska",
             "author": "James Buchanan"
         },
         {
-            "id": "AS",
-            "title": "American Samoa",
-            "author": "Franklin Pierce"
-        },
-        {
             "id": "AZ",
             "title": "Arizona",
             "author": "Millard Fillmore"
+        },
+        {
+            "id": "AL",
+            "title": "Alabama",
+            "author": "Abraham Lincoln"
+        },
+        {
+            "id": "AS",
+            "title": "American Samoa",
+            "author": "Franklin Pierce"
         },
         {
             "id": "AR",
