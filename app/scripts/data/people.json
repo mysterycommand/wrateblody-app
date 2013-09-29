@@ -1,0 +1,17 @@
+{
+    "people": [
+        {
+            "id": 0,
+            "firstName": "Beau",
+            "lastName": "Sia",
+            "listName": "Beau Sia",
+            "sortName": "Sia, Beau"
+        }, {
+            "id": 1,
+            "firstName": "Daniel",
+            "lastName": "Nester",
+            "listName": "Daniel Nester",
+            "sortName": "Nester, Daniel"
+        }
+    ]
+}

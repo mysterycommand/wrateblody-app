@@ -1,0 +1,47 @@
+{
+    "books": [
+        {
+            "id": 0,
+            "isbn10": "1938912071",
+            "isbn13": "978-1938912078",
+            "title": "The Undisputed Greatest Writer of All Time",
+            "imageURLs": {
+                "thumb": "http://writebloody.com/wp-content/uploads/2012/09/final-cover-for-use-125x192.png",
+                "small": "http://writebloody.com/wp-content/uploads/2012/09/final-cover-for-use-194x300.png"
+            },
+            "authors": [0],
+            "editors": [],
+            "listBy": "authors",
+            "links": {
+                "More &hellip;": "http://writebloody.com/shop/products/the-undisputed-greatest-writer-of-all-time/",
+                "Read Sample": "http://writebloody.com/path/to/sample.html",
+                "Tour Schedule": "http://writebloody.com/path/to/schedule.html",
+                "YouTube": "http://youtube.com/author-page"
+            },
+            "averageRating": 4,
+            "totalRatings": 100,
+            "description": "The world has waited over a decade for a new Beau Sia collection and here it comes. New work. Driven by the unguaranteed nature of life, the author&apos;s poetry bursts with the urgency to understand, the hunger to explore and to attack what prevents us from having full lives. The first book of poetry by Beau Sia in over 13 years, this work is the reflection of the child no longer at the mercy of his childishness, a boy who will not break his father to be a man, and a poet whose words are icebergs. Oct 21, 2012."
+        }, {
+            "id": 1,
+            "isbn10": "1938912365",
+            "isbn13": "978-1938912368",
+            "title": "The Incredible Sestina Anthology",
+            "imageURLs": {
+                "thumb": "http://writebloody.com/wp-content/uploads/2013/07/Nester-125x182.png",
+                "small": "http://writebloody.com/wp-content/uploads/2013/07/Nester-205x300.png"
+            },
+            "authors": [],
+            "editors": [1],
+            "listBy": "editors",
+            "links": {
+                "More &hellip;": "http://writebloody.com/shop/products/the-incredible-sestina-anthology-edited-by-daniel-nester/",
+                "Read Sample": "http://writebloody.com/path/to/sample.html",
+                "Tour Schedule": "http://writebloody.com/path/to/schedule.html",
+                "YouTube": "http://youtube.com/author-page"
+            },
+            "averageRating": 0,
+            "totalRatings": 0,
+            "description": "The first anthology of the poetic form of sestina. Here, 100 writers—from John Ashbery to David Lehman to Matt Madden and Patricia Smith—offer their sestinas. A 39-line poetic form, the sestina is the one form all poets agree can exist in a free-verse world, as formalists and avant-gardes love sestinas for their ornate, maddeningly complicated rules of word repetition."
+        }
+    ]
+}

@@ -15,13 +15,15 @@ define([
     'jquery',
     // 'lodash',
 
-    'templates/authorSection',
-    'templates/titleSection',
-    'text!data/sample.json',
+    'text!data/books.json',
+    'text!data/people.json',
+
+    'templates/booksByTitleSection',
+    'templates/peopleByLastNameSection',
 
     // load partials last
-    'templates/authorListItem',
-    'templates/titleListItem'
+    'templates/bookByTitleListItem',
+    'templates/personByLastNameListItem'
 
 ], function (
 
@@ -29,10 +31,11 @@ define([
     $,
     // _,
 
-    authorSection,
-    titleSection,
+    books,
+    people,
 
-    data
+    booksByTitleSection,
+    peopleByLastNameSection
 
 ) {
 
@@ -55,68 +58,94 @@ define([
         }
     });
 
+    Handlebars.registerHelper('lt', function (value, test, block) {
+        if (value < test) {
+            return block.fn(this);
+        } else {
+            return block.inverse(this);
+        }
+    });
+
     Handlebars.logger.log = function() {
         console.log(arguments);
     };
 
     return function() {
-        data = JSON.parse(data);
+        books = JSON.parse(books).books;
+        people = JSON.parse(people).people;
 
-        var titleHash = {},
-            authorHash = {},
-            letter = '',
-            $main = $('#js-main');
+        var $main = $('#js-main'),
+            bookTitleHash = {},
+            personNameHash = {},
+            letter = '';
 
-        data.posts.forEach(function(post) {
-            post.stars || (post.stars = Math.random() * 5 | 0);
-            letter = post.title.charAt(0).toUpperCase();
-            titleHash[letter] || (titleHash[letter] = []);
-            titleHash[letter].push(post);
+        books.forEach(function(book) {
+            var at = 0;
+            if (book.title.indexOf('The ') === 0) { at = 4; }
+            else if (book.title.indexOf('An ') === 0) { at = 3; }
+            else if (book.title.indexOf('A ') === 0) { at = 2; }
+
+            book.edited = book.listBy === 'editors';
+            var ppl = book[book.listBy].map(function(personId) {
+                var result;
+                people.some(function(person) {
+                    if (person.id === personId) {
+                        result = person.listName;
+                        return true;
+                    }
+                });
+                return result;
+            });
+
+            if ( ! ppl.length) {
+                throw new Error([
+                    'There are no authors or editors associated with the book \'',
+                    book.title,
+                    '\'.'
+                ].join(''));
+            }
+
+            book.attribution = (ppl.length > 1) ?
+                ppl.slice(0, ppl.length - 1).join(', ') + ' & ' + ppl[ppl.length - 1] :
+                ppl[0];
+
+            letter = book.title.charAt(at).toUpperCase();
+            bookTitleHash[letter] || (bookTitleHash[letter] = []);
+            bookTitleHash[letter].push(book);
         });
 
-        data.posts.forEach(function(post) {
-            post.stars || (post.stars = Math.random() * 5 | 0);
-            letter = post.author.charAt(post.author.lastIndexOf(' ') + 1).toUpperCase();
-            authorHash[letter] || (authorHash[letter] = []);
-            authorHash[letter].push(post);
+        people.forEach(function(person) {
+            letter = person.sortName.charAt(0).toUpperCase();
+            personNameHash[letter] || (personNameHash[letter] = []);
+            personNameHash[letter].push(person);
         });
 
         var keys;
 
-        keys = Object.keys(titleHash);
+        keys = Object.keys(bookTitleHash);
         keys.sort()
             .forEach(function(key) {
-                titleHash[key].sort(function(a, b) {
+                bookTitleHash[key].sort(function(a, b) {
                     var titleA = a.title;
                     var titleB = b.title;
                     if (titleA > titleB) { return 1; }
                     if (titleA < titleB) { return -1; }
                     return 0;
                 });
-                $main.append(titleSection({heading: key, content: titleHash[key]}));
+                $main.append(booksByTitleSection({heading: key, content: bookTitleHash[key]}));
             });
 
-        // keys = Object.keys(authorHash);
+        // keys = Object.keys(personNameHash);
         // keys.sort()
         //     .forEach(function(key) {
-        //         authorHash[key].sort(function(a, b) {
-        //             var lastNameA = a.author.substring(a.author.lastIndexOf(' ') + 1);
-        //             var lastNameB = b.author.substring(b.author.lastIndexOf(' ') + 1);
-        //             if (lastNameA > lastNameB) { return 1; }
-        //             if (lastNameA < lastNameB) { return -1; }
-
-        //             var firstNameA = a.author.substring(0, a.author.indexOf(' '));
-        //             var firstNameB = b.author.substring(0, b.author.indexOf(' '));
-        //             if (firstNameA > firstNameB) { return 1; }
-        //             if (firstNameA < firstNameB) { return -1; }
-
-        //             var middleNameA = a.author.substring(a.author.indexOf(' ') + 1, a.author.lastIndexOf(' '));
-        //             var middleNameB = b.author.substring(b.author.indexOf(' ') + 1, b.author.lastIndexOf(' '));
-        //             if (middleNameA > middleNameB) { return 1; }
-        //             if (middleNameA < middleNameB) { return -1; }
+        //         personNameHash[key].sort(function(a, b) {
+        //             var sortNameA = a.sortName;
+        //             var sortNameB = b.sortName;
+        //             if (sortNameA > sortNameB) { return 1; }
+        //             if (sortNameA < sortNameB) { return -1; }
         //             return 0;
         //         });
-        //         $main.append(authorSection({heading: key, content: authorHash[key]}));
+        //         $main.append(peopleByLastNameSection({heading: key, content: personNameHash[key]}));
         //     });
     };
 
