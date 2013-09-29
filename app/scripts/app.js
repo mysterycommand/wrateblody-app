@@ -156,18 +156,7 @@ define([
                 $main.empty();
 
                 switch (this.hash) {
-                case '#peopleAZ':
-                    Object.keys(bookTitleHash)
-                        .sort()
-                        .forEach(function(key) {
-                            $main
-                                .append(booksByTitleSection({
-                                    heading: key,
-                                    content: bookTitleHash[key]
-                                }));
-                        });
-                    break;
-                case '#booksAZ':
+                case '#people-AZ':
                     Object.keys(personNameHash)
                         .sort()
                         .forEach(function(key) {
@@ -175,6 +164,17 @@ define([
                                 .append(peopleByLastNameSection({
                                     heading: key,
                                     content: personNameHash[key]
+                                }));
+                        });
+                    break;
+                case '#books-AZ':
+                    Object.keys(bookTitleHash)
+                        .sort()
+                        .forEach(function(key) {
+                            $main
+                                .append(booksByTitleSection({
+                                    heading: key,
+                                    content: bookTitleHash[key]
                                 }));
                         });
                     break;
