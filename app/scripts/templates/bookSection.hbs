@@ -1,0 +1,23 @@
+<section id="js-book-{{id}}" class="book-section">
+    <h1>
+        <ul class="hlist" title="Average Rating: {{ averageRating }}, by {{ totalRatings }} reader{{#gt totalRatings 1}}s{{/gt}}.">
+        {{#times 4}}
+            {{#gt ../averageRating this}}
+            <li>★</li>
+            {{else}}
+            <li>☆</li>
+            {{/gt}}
+        {{/times}}
+        </ul>
+    </h1>
+    <h2>{{ title }}</h2>
+    {{#if edited}}edited {{/if}}by
+    <h3>{{ attribution }}</h3>
+    <img src="{{ imageURLs.thumb }}" alt="{{ title }} {{#if edited}}edited {{/if}}by {{ attribution }}">
+    <p>{{ description }}</p>
+    <ul>
+        {{#each links}}
+        <li><a href="{{ this }}">{{ @key }}</a></li>
+        {{/each}}
+    </ul>
+</section>

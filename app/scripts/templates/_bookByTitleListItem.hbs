@@ -1,13 +1,13 @@
 <li>
-    <span>{{ title }}</span>
+    <a href="#/book/{{id}}">{{ title }}</a>
     <em>
         {{#if edited}}edited {{/if}}by
         {{ attribution }}
     </em>
     {{#lt totalRatings 1}}
-    <strong>No Ratings!</strong>
+    <strong class="ratings">No Ratings!</strong>
     {{else}}
-    <ul title="Average Rating: {{ averageRating }}, by {{ totalRatings }} reader{{#gt totalRatings 1}}s{{/gt}}.">
+    <ul class="hlist ratings" title="Average Rating: {{ averageRating }}, by {{ totalRatings }} reader{{#gt totalRatings 1}}s{{/gt}}.">
     {{#times 4}}
         {{#gt ../averageRating this}}
         <li>★</li>

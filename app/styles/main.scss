@@ -38,7 +38,7 @@ main {
     box-shadow: 0 0 40px 0 $aCopy;
 }
 
-h3 {
+h4 {
     background: purple;
     margin: 0;
     position: -webkit-sticky;
@@ -62,14 +62,10 @@ a:hover,
 a.selected { color: $dark; }
 a { text-decoration: none; }
 
-section>ul>li {
-    border-bottom: 1px solid orange;
-    &:last-child { border-bottom: none; }
-}
-
-ul ul,
-li li,
-nav li { display: inline-block; }
+//section>ul>li {
+//    border-bottom: 1px solid orange;
+//    &:last-child { border-bottom: none; }
+//}
 
 nav li { text-align: center; }
 
@@ -77,6 +73,21 @@ nav a {
     display: inline-block;
     padding: 1em 0;
     width: 100%;
+}
+
+.justify-rwd {
+    font-size: 0.1px;
+    text-align: justify;
+
+    &>* {
+        font-size: $fontSize;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
 }
 
 .flex-container {
@@ -95,20 +106,9 @@ nav a {
 //    &.flex-item-flood { flex-grow: 1; flex-shrink: 1; }
 //}
 
-.justify-rwd {
-    font-size: 0.1px;
-    text-align: justify;
+.hlist li { display: inline-block; }
 
-    &>* {
-        font-size: $fontSize;
-    }
-
-    &:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-    }
-}
+.ratings { float: right; }
 
 .header-nav li {
     width: 79%;

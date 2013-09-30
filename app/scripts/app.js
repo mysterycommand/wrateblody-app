@@ -20,6 +20,7 @@ define([
 
     'templates/booksByTitleSection',
     'templates/peopleByLastNameSection',
+    'templates/bookSection',
 
     // load partials last
     'templates/bookByTitleListItem',
@@ -35,7 +36,8 @@ define([
     people,
 
     booksByTitleSection,
-    peopleByLastNameSection
+    peopleByLastNameSection,
+    bookSection
 
 ) {
 
@@ -148,16 +150,18 @@ define([
 
         $body
             .on('click', 'a', function(event) {
+                var $this = $(this);
+                if ($this.attr('href').indexOf('http') === 0) { return; }
+
                 event.preventDefault();
                 event.stopPropagation();
 
-                $('a.selected').removeClass('selected');
-                $('#js-title').html($(this).addClass('selected').clone());
-
                 $main.empty();
+                $('#js-prev').empty();
+                $('#js-next').empty();
 
                 switch (this.hash) {
-                case '#people-AZ':
+                case '#/people/AZ':
                     Object.keys(personByLastNameHash)
                         .sort()
                         .forEach(function(key) {
@@ -168,7 +172,7 @@ define([
                                 }));
                         });
                     break;
-                case '#books-AZ':
+                case '#/books/AZ':
                     Object.keys(bookByTitleHash)
                         .sort()
                         .forEach(function(key) {
@@ -179,7 +183,41 @@ define([
                                 }));
                         });
                     break;
+                default:
+                    var match = this.hash.match(/#\/(\w+)\/(\d+)/);
+
+                    if (match.length !== 3) {
+                        throw new Error([
+                            'Invalid path: ',
+                            this.hash,
+                            '.'
+                        ].join(''));
+                    }
+
+                    switch (match[1]) {
+                    case 'book':
+                        var found,
+                            bookId = +match[2];
+
+                        books.some(function(book) {
+                            if (book.id === bookId) {
+                                console.log(found);
+                                found = book;
+                                return true;
+                            }
+                        });
+
+                        $main.append(bookSection(found));
+                        break;
+                    case 'person':
+                        break;
+                    }
+
+                    $('#js-prev').html($('#js-title').html());
                 }
+
+                $('a.selected').removeClass('selected');
+                $('#js-title').html($this.addClass('selected').clone());
             })
             .find('a')
             .first()
