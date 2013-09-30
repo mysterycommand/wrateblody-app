@@ -12,7 +12,7 @@
     </h1>
     <h2>{{ title }}</h2>
     {{#if edited}}edited {{/if}}by
-    <h3>{{ attribution }}</h3>
+    <h3>{{#links 'person' attribution}}{{/links}}</h3>
     <img src="{{ imageURLs.thumb }}" alt="{{ title }} {{#if edited}}edited {{/if}}by {{ attribution }}">
     <p>{{ description }}</p>
     <ul>

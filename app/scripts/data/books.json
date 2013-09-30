@@ -9,7 +9,7 @@
                 "thumb": "http://writebloody.com/wp-content/uploads/2012/09/final-cover-for-use-125x192.png",
                 "small": "http://writebloody.com/wp-content/uploads/2012/09/final-cover-for-use-194x300.png"
             },
-            "authors": [0],
+            "authors": [0, 1, 0],
             "editors": [],
             "listBy": "authors",
             "links": {

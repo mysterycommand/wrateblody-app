@@ -46,12 +46,35 @@ define([
     'use strict';
 
     Handlebars.registerHelper('times', function(n, block) {
-        var str = '',
-            i;
+        var out = '', i;
         for (i = 0; i < n; ++i) {
-            str += block.fn(i);
+            out += block.fn(i);
         }
-        return str;
+        return out;
+    });
+
+    Handlebars.registerHelper('links', function(resource, list) {
+        var links = [];
+
+        list.forEach(function(item) {
+            links.push([
+                '<a href="#/' + resource + '/' + item.id + '">',
+                item.listName,
+                '</a>'
+            ].join(''));
+        });
+
+        return (links.length > 1) ?
+            links.slice(0, links.length - 1).join(', ') + ' & ' + links[links.length - 1] :
+            links[0];
+    });
+
+    Handlebars.registerHelper('eq', function (value, test, block) {
+        if (value === test) {
+            return block.fn(this);
+        } else {
+            return block.inverse(this);
+        }
     });
 
     Handlebars.registerHelper('gt', function (value, test, block) {
@@ -93,15 +116,16 @@ define([
 
             book.edited = book.listBy === 'editors';
             var ppl = book[book.listBy].map(function(personId) {
-                var result;
+                var found;
                 people.some(function(person) {
                     if (person.id === personId) {
-                        result = person.listName;
+                        found = person; // person.listName;
                         return true;
                     }
                 });
-                return result;
+                return found;
             });
+            ppl.lastIndex = ppl.length - 1;
 
             if ( ! ppl.length) {
                 throw new Error([
@@ -111,9 +135,9 @@ define([
                 ].join(''));
             }
 
-            book.attribution = (ppl.length > 1) ?
-                ppl.slice(0, ppl.length - 1).join(', ') + ' & ' + ppl[ppl.length - 1] :
-                ppl[0];
+            book.attribution = ppl; // (ppl.length > 1) ?
+                // ppl.slice(0, ppl.length - 1).join(', ') + ' & ' + ppl[ppl.length - 1] :
+                // ppl[0];
 
             letter = book.title.charAt(at).toUpperCase();
             bookByTitleHash[letter] || (bookByTitleHash[letter] = []);

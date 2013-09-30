@@ -2,7 +2,7 @@
     <a href="#/book/{{ id }}">{{ title }}</a>
     <em>
         {{#if edited}}edited {{/if}}by
-        {{ attribution }}
+        {{#links 'person' attribution}}{{/links}}
     </em>
     {{#lt totalRatings 1}}
     <strong class="ratings">No Ratings!</strong>
