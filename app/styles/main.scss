@@ -111,6 +111,8 @@ nav a {
 
     &>.inner {
         overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
         position: absolute;
             top: 0;
             right: 0;
