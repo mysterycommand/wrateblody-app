@@ -106,6 +106,19 @@ nav a {
 //    &.flex-item-flood { flex-grow: 1; flex-shrink: 1; }
 //}
 
+.container {
+    position: relative;
+
+    &>.inner {
+        overflow: scroll;
+        position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+    }
+}
+
 .hlist li { display: inline-block; }
 
 .ratings { float: right; }
