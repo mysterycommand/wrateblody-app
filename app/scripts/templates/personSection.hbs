@@ -1,0 +1,19 @@
+<section id="js-person-{{id}}" class="person-section">
+    <h1>{{ listName }}</h1>
+    {{#if authored}}
+    <h3>Author:</h3>
+    <ul>
+        {{#each authored}}
+        <li><a href="#/book/{{ id }}">{{ title }}</a></li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{#if edited}}
+    <h3>Editor:</h3>
+    <ul>
+        {{#each edited}}
+        <li><a href="#/book/{{ id }}">{{ title }}</a></li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</section>

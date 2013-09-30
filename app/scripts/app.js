@@ -21,6 +21,7 @@ define([
     'templates/booksByTitleSection',
     'templates/peopleByLastNameSection',
     'templates/bookSection',
+    'templates/personSection',
 
     // load partials last
     'templates/bookByTitleListItem',
@@ -37,7 +38,8 @@ define([
 
     booksByTitleSection,
     peopleByLastNameSection,
-    bookSection
+    bookSection,
+    personSection
 
 ) {
 
@@ -172,6 +174,7 @@ define([
                                 }));
                         });
                     break;
+
                 case '#/books/AZ':
                     Object.keys(bookByTitleHash)
                         .sort()
@@ -183,8 +186,10 @@ define([
                                 }));
                         });
                     break;
+
                 default:
-                    var match = this.hash.match(/#\/(\w+)\/(\d+)/);
+                    var match = this.hash.match(/#\/(\w+)\/(\d+)/),
+                        found;
 
                     if (match.length !== 3) {
                         throw new Error([
@@ -195,13 +200,12 @@ define([
                     }
 
                     switch (match[1]) {
+
                     case 'book':
-                        var found,
-                            bookId = +match[2];
+                        var bookId = +match[2];
 
                         books.some(function(book) {
                             if (book.id === bookId) {
-                                console.log(found);
                                 found = book;
                                 return true;
                             }
@@ -209,7 +213,24 @@ define([
 
                         $main.append(bookSection(found));
                         break;
+
                     case 'person':
+                        var personId = +match[2];
+
+                        people.some(function(person) {
+                            if (person.id === personId) {
+                                found = person;
+                                found.edited = books.filter(function(book) {
+                                    return book.editors.indexOf(personId) > -1;
+                                });
+                                found.authored = books.filter(function(book) {
+                                    return book.authors.indexOf(personId) > -1;
+                                });
+                                return true;
+                            }
+                        });
+
+                        $main.append(personSection(found));
                         break;
                     }
 
