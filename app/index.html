@@ -26,28 +26,27 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
-    <body class="flex-container">
+    <body id="js-body" class="flex-container">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!--
-        <header class="header">
-            <nav>
-                <ul>
-                    <li id="js-prev"></li>
-                    <li id="js-next"></li>
+        <header class="header flex-item-fixed">
+            <nav id="js-header-nav" class="header-nav">
+                <ul class="justify-rwd">
+                    <li id="js-prev" class="prev">&nbsp;</li>
+                    <li id="js-title" class="title">&nbsp;</li>
+                    <li id="js-next" class="next">&nbsp;</li>
                 </ul>
             </nav>
         </header>
-         -->
         <main id="js-main" class="container flex-item-flood" role="main">
         </main>
         <footer class="footer flex-item-fixed">
-            <nav id="js-footer-nav">
-                <ul>
-                    <li><a href="#people-AZ">Authors A-Z</a></li>
-                    <li><a href="#books-AZ">Books A-Z</a></li>
+            <nav id="js-footer-nav" class="footer-nav">
+                <ul class="justify-rwd">
+                    <li id="js-people-AZ"><a href="#people-AZ">Authors A-Z</a></li>
+                    <li id="js-books-AZ"><a href="#books-AZ">Books A-Z</a></li>
                 </ul>
             </nav>
         </footer>

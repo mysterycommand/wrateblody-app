@@ -74,10 +74,12 @@ define([
         books = JSON.parse(books).books;
         people = JSON.parse(people).people;
 
-        var $main = $('#js-main'),
-            bookTitleHash = {},
-            personNameHash = {},
-            letter = '';
+        var $body = $('#js-body'),
+            $main = $('#js-main'),
+            bookByTitleHash = {},
+            personByLastNameHash = {},
+            letter = '',
+            keys;
 
         books.forEach(function(book) {
             var at = 0;
@@ -110,71 +112,70 @@ define([
                 ppl[0];
 
             letter = book.title.charAt(at).toUpperCase();
-            bookTitleHash[letter] || (bookTitleHash[letter] = []);
-            bookTitleHash[letter].push(book);
+            bookByTitleHash[letter] || (bookByTitleHash[letter] = []);
+            bookByTitleHash[letter].push(book);
         });
 
         people.forEach(function(person) {
             letter = person.sortName.charAt(0).toUpperCase();
-            personNameHash[letter] || (personNameHash[letter] = []);
-            personNameHash[letter].push(person);
+            personByLastNameHash[letter] || (personByLastNameHash[letter] = []);
+            personByLastNameHash[letter].push(person);
         });
 
-        var keys;
-
-        keys = Object.keys(bookTitleHash);
+        keys = Object.keys(bookByTitleHash);
         keys.sort()
             .forEach(function(key) {
-                bookTitleHash[key].sort(function(a, b) {
+                bookByTitleHash[key].sort(function(a, b) {
                     var titleA = a.title;
                     var titleB = b.title;
                     if (titleA > titleB) { return 1; }
                     if (titleA < titleB) { return -1; }
                     return 0;
                 });
-                // $main.append(booksByTitleSection({heading: key, content: bookTitleHash[key]}));
             });
 
-        keys = Object.keys(personNameHash);
+        keys = Object.keys(personByLastNameHash);
         keys.sort()
             .forEach(function(key) {
-                personNameHash[key].sort(function(a, b) {
+                personByLastNameHash[key].sort(function(a, b) {
                     var sortNameA = a.sortName;
                     var sortNameB = b.sortName;
                     if (sortNameA > sortNameB) { return 1; }
                     if (sortNameA < sortNameB) { return -1; }
                     return 0;
                 });
-                // $main.append(peopleByLastNameSection({heading: key, content: personNameHash[key]}));
             });
 
-        $('#js-footer-nav')
+        $body
             .on('click', 'a', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
+
+                $('a.selected').removeClass('selected');
+                $('#js-title').html($(this).addClass('selected').clone());
 
                 $main.empty();
 
                 switch (this.hash) {
                 case '#people-AZ':
-                    Object.keys(personNameHash)
+                    Object.keys(personByLastNameHash)
                         .sort()
                         .forEach(function(key) {
                             $main
                                 .append(peopleByLastNameSection({
                                     heading: key,
-                                    content: personNameHash[key]
+                                    content: personByLastNameHash[key]
                                 }));
                         });
                     break;
                 case '#books-AZ':
-                    Object.keys(bookTitleHash)
+                    Object.keys(bookByTitleHash)
                         .sort()
                         .forEach(function(key) {
                             $main
                                 .append(booksByTitleSection({
                                     heading: key,
-                                    content: bookTitleHash[key]
+                                    content: bookByTitleHash[key]
                                 }));
                         });
                     break;
