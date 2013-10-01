@@ -15,7 +15,7 @@
 8. Setup the Travis CI hook.
 9. Run the travis-ci:gh-pages generator.
 10. Install grunt-contrib-handlebars via `npm install git://github.com/gruntjs/grunt-contrib-handlebars --save-dev` (It's not up to date on NPM).
-  - Add handlebars task to `Gruntfile.js` like:
+    - Add handlebars task to `Gruntfile.js` like:
         ```javascript
         handlebars: {
             compile: {
@@ -38,10 +38,10 @@
             }
         }
         ```
-  - Add `'handlebars'` task to `'watch'`, and `'concurrent'` tasks.
-  - Add `paths: {'templates': '../../.tmp/scripts/templates'},` to `'requirejs'` task, so that mapping to compiled templates works during build.
+    - Add `'handlebars'` task to `'watch'`, and `'concurrent'` tasks.
+    - Add `paths: {'templates': '../../.tmp/scripts/templates'},` to `'requirejs'` task, so that mapping to compiled templates works during build.
 11. Install handlebars via `bower install handlebars --save`.
-  - Add `handlebars: '../bower_components/handlebars/handlebars.runtime',` to the main Require JS config file.
+    - Add `handlebars: '../bower_components/handlebars/handlebars.runtime',` to the main Require JS config file.
 
 ###### Dummy Data
 1. Assume we'll use something like [JSON API](http://wordpress.org/plugins/json-api/).
