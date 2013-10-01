@@ -16,28 +16,28 @@
 9. Run the travis-ci:gh-pages generator.
 10. Install grunt-contrib-handlebars via `npm install git://github.com/gruntjs/grunt-contrib-handlebars --save-dev` (It's not up to date on NPM).
   - Add handlebars task to `Gruntfile.js` like:
-    ```javascript
-    handlebars: {
-        compile: {
-            files: [{
-                expand: true,
-                cwd: '<%= yeoman.app %>/scripts/',
-                dest: '.tmp/scripts/',
-                src: [
-                    'templates/**/*.hbs'
-                ],
-                ext: '.js',
-                rename: function(dest, src) {
-                    return dest + src.replace('_', '');
+        ```javascript
+        handlebars: {
+            compile: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/scripts/',
+                    dest: '.tmp/scripts/',
+                    src: [
+                        'templates/**/*.hbs'
+                    ],
+                    ext: '.js',
+                    rename: function(dest, src) {
+                        return dest + src.replace('_', '');
+                    }
+                }],
+                options: {
+                    namespace: false,
+                    amd: true
                 }
-            }],
-            options: {
-                namespace: false,
-                amd: true
             }
         }
-    }
-    ```
+        ```
   - Add `'handlebars'` task to `'watch'`, and `'concurrent'` tasks.
   - Add `paths: {'templates': '../../.tmp/scripts/templates'},` to `'requirejs'` task, so that mapping to compiled templates works during build.
 11. Install handlebars via `bower install handlebars --save`.
