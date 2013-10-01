@@ -39,7 +39,6 @@
             }
         }
         ```
-
     * Add `'handlebars'` task to `'watch'`, and `'concurrent'` tasks.
     * Add `paths: {'templates': '../../.tmp/scripts/templates'},` to `'requirejs'` task, so that mapping to compiled templates works during build.
 11. Install handlebars via `bower install handlebars --save`.
