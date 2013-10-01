@@ -14,7 +14,11 @@
 7. Push up to GitHub.
 8. Setup the Travis CI hook.
 9. Run the travis-ci:gh-pages generator.
-10. Install grunt-contrib-handlebars via `npm install git://github.com/gruntjs/grunt-contrib-handlebars --save-dev` (It's not up to date on NPM).
+10. Install grunt-contrib-handlebars via:
+
+    ```
+    npm install grunt-contrib-handlebars --save-dev
+    ```
     * Add handlebars task to `Gruntfile.js` like:
 
         ```javascript
