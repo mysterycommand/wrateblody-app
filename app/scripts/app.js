@@ -64,9 +64,10 @@ define([
             ].join(''));
         });
 
-        return (links.length > 1) ?
-            links.slice(0, links.length - 1).join(', ') + ' & ' + links[links.length - 1] :
-            links[0];
+        /* jshint laxbreak: true */
+        return (links.length > 1)
+            ? links.slice(0, links.length - 1).join(', ') + ' & ' + links[links.length - 1]
+            : links[0];
     });
 
     Handlebars.registerHelper('eq', function (value, test, block) {
