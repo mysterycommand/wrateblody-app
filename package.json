@@ -28,7 +28,9 @@
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
     "grunt-usereplace": "~0.1.4",
-    "grunt-contrib-handlebars": "~0.5.11"
+    "grunt-contrib-handlebars": "~0.5.11",
+    "request": "~2.27.0",
+    "cheerio": "~0.12.3"
   },
   "engines": {
     "node": ">=0.8.0"

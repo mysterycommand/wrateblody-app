@@ -140,6 +140,9 @@ define([
                 // ppl.slice(0, ppl.length - 1).join(', ') + ' & ' + ppl[ppl.length - 1] :
                 // ppl[0];
 
+            book.averageRating = ~~(Math.random() * 5);
+            book.totalRatings = ~~(Math.random() * 100);
+
             letter = book.title.charAt(at).toUpperCase();
             bookByTitleHash[letter] || (bookByTitleHash[letter] = []);
             bookByTitleHash[letter].push(book);
@@ -155,8 +158,20 @@ define([
         keys.sort()
             .forEach(function(key) {
                 bookByTitleHash[key].sort(function(a, b) {
-                    var titleA = a.title;
-                    var titleB = b.title;
+                    var atA = 0,
+                        atB = 0;
+
+                    if (a.title.indexOf('The ') === 0) { atA = 4; }
+                    else if (a.title.indexOf('An ') === 0) { atA = 3; }
+                    else if (a.title.indexOf('A ') === 0) { atA = 2; }
+
+                    if (b.title.indexOf('The ') === 0) { atB = 4; }
+                    else if (b.title.indexOf('An ') === 0) { atB = 3; }
+                    else if (b.title.indexOf('A ') === 0) { atB = 2; }
+
+                    var titleA = a.title.substr(atA);
+                    var titleB = b.title.substr(atB);
+
                     if (titleA > titleB) { return 1; }
                     if (titleA < titleB) { return -1; }
                     return 0;
@@ -169,6 +184,7 @@ define([
                 personByLastNameHash[key].sort(function(a, b) {
                     var sortNameA = a.sortName;
                     var sortNameB = b.sortName;
+
                     if (sortNameA > sortNameB) { return 1; }
                     if (sortNameA < sortNameB) { return -1; }
                     return 0;

@@ -123,7 +123,10 @@ nav a {
 
 .hlist li { display: inline-block; }
 
-.ratings { float: right; }
+.ratings {
+    float: right;
+    line-height: 1;
+}
 
 .header-nav li {
     width: 59%;
