@@ -1,0 +1,32 @@
+$bkgd: #efefef;
+$frgd: #fafafa;
+$text: #222;
+
+$fontSize: 16px;
+$fontFamily: /* "HelveticaNeue-UltraLight",
+             "Helvetica Neue UltraLight", */
+             "HelveticaNeue-Light",
+             "Helvetica Neue Light",
+             "Helvetica Neue",
+             Helvetica,
+             Arial,
+             "Lucida Grande",
+             sans-serif;
+
+body {
+    background: $bkgd;
+    background-position: center center;
+
+    color: $text;
+
+    font-size: $fontSize;
+    font-family: $fontFamily;
+}
+
+main {
+    background: $frgd;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+}

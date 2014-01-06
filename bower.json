@@ -1,0 +1,17 @@
+{
+  "name": "angular-require",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "almond": "~0.2.7",
+
+    "angular": "~1.2.7",
+    "angular-ui-router": "~0.2.7",
+
+    "modernizr": "~2.7.1",
+    "normalize-css": "~2.1.3",
+
+    "requirejs": "~2.1.9",
+    "requirejs-text": "~2.0.10"
+  }
+}
