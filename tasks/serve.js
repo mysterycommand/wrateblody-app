@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         if (target === 'dist') {
             return grunt.task.run([
                 'build',
-                'connect:dst:keepalive'
+                'connect:dist:keepalive'
             ]);
         }
 

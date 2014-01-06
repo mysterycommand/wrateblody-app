@@ -14,7 +14,7 @@ module.exports = {
             ]
         }
     },
-    tst: {
+    test: {
         options: {
             port: 9001,
             base: [
@@ -24,7 +24,7 @@ module.exports = {
             ]
         }
     },
-    dst: {
+    dist: {
         options: {
             livereload: false,
             base: [
