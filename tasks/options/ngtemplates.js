@@ -4,7 +4,7 @@ var grunt = require('grunt');
 
 module.exports = {
     options: {
-        module: 'app',
+        module: 'wb-app',
         htmlmin: '<%= htmlmin.dist %>',
         bootstrap: function(module, script) {
             return grunt.template.process([

@@ -3,14 +3,14 @@ define(function(require) {
 
     var angular = require('angular');
 
-    require('app');
+    require('wb-app');
     require('states');
+
+    require('AppsController');
 
     console.log('Bootstrap!');
     angular.element(document).ready(function() {
         console.log('Ready!');
-        angular.bootstrap(document, ['app']);
+        angular.bootstrap(document, ['wb-app']);
     });
-
-    // angular.bootstrap(document, ['app']);
 });

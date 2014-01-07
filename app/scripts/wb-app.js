@@ -5,7 +5,7 @@ define(function(require) {
 
     require('angular-ui-router');
 
-    angular.module('app', [
+    angular.module('wb-app', [
         'ui.router'
     ])
     .run(function($rootScope, $state, $stateParams) {

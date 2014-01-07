@@ -15,18 +15,11 @@ $fontFamily: /* "HelveticaNeue-UltraLight",
 
 body {
     background: $bkgd;
-    background-position: center center;
-
     color: $text;
-
     font-size: $fontSize;
     font-family: $fontFamily;
 }
 
-main {
+#page {
     background: $frgd;
-    border-radius: 8px;
-
-    display: flex;
-    flex-direction: column;
 }
