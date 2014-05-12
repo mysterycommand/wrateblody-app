@@ -50,7 +50,6 @@ define(function(require) {
 
         books: function(by, authorEditorOrTitle) {
             if (!! view) { view.$el.off(); }
-            console.log(by, authorEditorOrTitle);
 
             if (! by || (by && ! authorEditorOrTitle)) {
                 /* jshint expr: true*/

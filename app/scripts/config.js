@@ -12,10 +12,10 @@
 require.config({
     deps: ['main'],
     paths: {
-        jquery: '/bower_components/jquery/dist/jquery',
-        backbone: '/bower_components/backbone/backbone',
-        underscore: '/bower_components/underscore/underscore',
-        text: '/bower_components/requirejs-text/text'
+        jquery: '../../bower_components/jquery/dist/jquery',
+        backbone: '../../bower_components/backbone/backbone',
+        underscore: '../../bower_components/underscore/underscore',
+        text: '../../bower_components/requirejs-text/text'
     },
     shim: {
         jquery: {
