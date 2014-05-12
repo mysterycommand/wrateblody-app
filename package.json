@@ -1,9 +1,9 @@
 {
-  "name": "write-bloody",
+  "name": "writebloody-app",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mysterycommand/write-bloody"
+    "url": "https://github.com/mysterycommand/writebloody-app"
   },
   "author": {
     "name": "Matt Hayes",
