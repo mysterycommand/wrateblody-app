@@ -17,9 +17,12 @@ define(function(require) {
 
     $(function() {
         var root = $('base').attr('href');
+        root = root.substr(root.lastIndexOf('/') + 1);
+
         var app = new AppRouter();
         Object.keys(app.routes).forEach(function(route) {
             app.route(root + route, app.routes[route]);
+            console.log(root + route, route, app.routes[route]);
         });
         Bb.history.start({ pushState: true });
 
