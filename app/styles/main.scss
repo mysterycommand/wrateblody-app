@@ -1,25 +1,10 @@
-$bkgd: #efefef;
-$frgd: #fafafa;
-$text: #222;
-
-$fontSize: 16px;
-$fontFamily: /* "HelveticaNeue-UltraLight",
-             "Helvetica Neue UltraLight", */
-             "HelveticaNeue-Light",
-             "Helvetica Neue Light",
-             "Helvetica Neue",
-             Helvetica,
-             Arial,
-             "Lucida Grande",
-             sans-serif;
+@import "variables";
 
 body {
-    background: $bkgd;
-    color: $text;
-    font-size: $fontSize;
-    font-family: $fontFamily;
+    font-family: $bodyFontFamily;
 }
 
-#page {
-    background: $frgd;
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headFontFamily;
+    font-weight: normal;
 }

@@ -1,18 +1,32 @@
+/** ================================================================================================================ **/
+/**
+ * @fileOverview
+ *
+ * @author Matt Hayes <matt@mysterycommand.com>
+ * @version 0.0.0
+ */
+/** ================================================================================================================ **/
+
 'use strict';
 
 require.config({
-
+    deps: ['main'],
     paths: {
-        'angular': '../bower_components/angular/angular',
-        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
-
-        'text': '../bower_components/requirejs-text/text'
+        jquery: '/bower_components/jquery/dist/jquery',
+        backbone: '/bower_components/backbone/backbone',
+        underscore: '/bower_components/underscore/underscore',
+        text: '/bower_components/requirejs-text/text'
     },
-
     shim: {
-        'angular': { exports: 'angular' },
-        'angular-ui-router': [ 'angular' ]
-    },
-
-    deps: [ 'bootstrap' ]
+        jquery: {
+            exports: '$'
+        },
+        underscore: {
+            exports: '_'
+        },
+        backbone: {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        }
+    }
 });
