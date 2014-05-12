@@ -16,8 +16,11 @@ define(function(require) {
     var AppRouter = require('app/AppRouter');
 
     $(function() {
-        /* jshint unused: false */
+        var root = $('base').attr('href');
         var app = new AppRouter();
+        Object.keys(app.routes).forEach(function(route) {
+            app.route(root + route, app.routes[route]);
+        });
         Bb.history.start({ pushState: true });
 
         $(document).on('click', 'a', function(event) {
