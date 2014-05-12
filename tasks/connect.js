@@ -43,6 +43,15 @@ module.exports = {
     dist: {
         options: {
             base: '<%= config.dist %>',
+            middleware: function(connect, options, middlewares) {
+                // Matches everything that does not contain a '.' (period)
+                middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]']));
+                options.base.forEach(function(base) {
+                    middlewares.push(connect.static(base));
+                });
+
+                return middlewares;
+            },
             livereload: false
         }
     }
