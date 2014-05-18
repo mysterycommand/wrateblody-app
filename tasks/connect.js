@@ -12,7 +12,8 @@ module.exports = {
         options: {
             base: [
                 '<%= config.temp %>',
-                '<%= config.app %>'
+                '<%= config.app %>',
+                '.'
             ],
             middleware: function(connect, options, middlewares) {
                 // Matches everything that does not contain a '.' (period)
