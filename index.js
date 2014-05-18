@@ -13,5 +13,5 @@ app.use(modrewrite(['^[^\\.]*$ /index.html [L]']));
 app.use(express.static(__dirname + '/dist'));
 
 app.listen(PORT, function() {
-    console.log('Listening on port:', PORT);
+    console.log('listening on port:', PORT);
 });
