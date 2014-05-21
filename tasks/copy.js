@@ -8,8 +8,10 @@ module.exports = {
             cwd: '<%= config.app %>/',
             src: [
                 'lib/**/*',
+
                 'index.js',
                 'package.json',
+                'Procfile',
 
                 'static/*.{htaccess,html,txt}',
                 'static/images/*'
