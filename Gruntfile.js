@@ -64,9 +64,9 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('serve', [
-        'npm-install',
         'jshint',
         'clean:dev',
+        'npm-install',
         'sass',
         'connect:livereload',
         'watch'
@@ -83,11 +83,11 @@ module.exports = function(grunt) {
         'modernizr',
         'requirejs',
         'copy',
+        'npm-install:dist',
         'rev',
         'usemin',
         'usereplace',
-        'htmlmin',
-        'npm-install:dist'
+        'htmlmin'
     ]);
 
     grunt.registerTask('demo', [
@@ -97,6 +97,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'clean:dev',
+        'npm-install',
         'connect:test',
         'mocha'
     ]);
