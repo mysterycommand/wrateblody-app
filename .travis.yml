@@ -29,7 +29,6 @@ env:
         - GH_PROJECT_NAME: writebloody-app
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
         # and deploy the output to your project's gh-pages branch.
-
 before_script:
     # install dependencies
     - phantomjs --version
@@ -54,3 +53,10 @@ after_success:
     - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
+deploy:
+    # This section borrowed from: http://docs.travis-ci.com/user/deployment/heroku/
+    provider: heroku
+    api_key:
+        secure: ckRUmkp3lMCaIh3cGXa6BrjkATJfzVWnY+L+tHu+nKFrnEetZdHsTMOXlQTJUO9pZTSkruved8JcgP+r/QoEsFyE6Y4NrAlxySi64X8yHOszN1sH8E19zNi5ZsmWl16F9YnjPgpaXn5hqSQYpJF/s79SAjy2gCZdB8ykqyKrvfo=
+    app:
+        gh-pages: writebloodyapp
