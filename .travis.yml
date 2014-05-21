@@ -6,7 +6,7 @@ deploy:
     api_key:
         secure: DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw=
     app: writebloodyapp
-    on: gh-pages
+    on: heroku
 notifications:
     irc: "irc.freenode.org#generator-travis-ci"
 branches:
@@ -25,9 +25,9 @@ script:
     - bower install
     - grunt
 after_success:
-    - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+    - git submodule add -b heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
-    - if git checkout gh-pages; then git checkout -b gh-pages; fi
+    - if git checkout heroku; then git checkout -b heroku; fi
     - git rm -r .
     - cp -R ../dist/* .
     - cp ../dist/.* .
@@ -35,4 +35,4 @@ after_success:
     - git config user.email "matt@mysterycommand.com"
     - git config user.name "Matt Hayes"
     - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
+    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:heroku > /dev/null 2>&1
