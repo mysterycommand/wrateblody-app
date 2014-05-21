@@ -7,3 +7,32 @@ deploy:
         secure: DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw=
     app: writebloodyapp
     on: gh-pages
+notifications:
+    irc: "irc.freenode.org#generator-travis-ci"
+branches:
+    only:
+        - master
+env:
+    global:
+        - secure: "QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8="
+        - GH_OWNER: mysterycommand
+        - GH_PROJECT_NAME: writebloody-app
+before_script:
+    - gem update --system
+    - gem install sass
+    - npm install -g grunt-cli bower
+script:
+    - bower install
+    - grunt
+after_success:
+    - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+    - cd site
+    - if git checkout gh-pages; then git checkout -b gh-pages; fi
+    - git rm -r .
+    - cp -R ../dist/* .
+    - cp ../dist/.* .
+    - git add -f .
+    - git config user.email "matt@mysterycommand.com"
+    - git config user.name "Matt Hayes"
+    - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
+    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
