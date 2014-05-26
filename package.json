@@ -1,6 +1,7 @@
 {
   "name": "writebloodyapp",
   "version": "0.0.0",
+  "description": "The Write Bloody App server and client source.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mysterycommand/writebloodyapp.git"

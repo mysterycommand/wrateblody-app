@@ -1,6 +1,7 @@
 {
   "name": "writebloodyapp-server",
   "version": "0.0.0",
+  "description": "The Write Bloody App build.",
   "repository": {},
   "author": {
     "name": "Matt Hayes",
