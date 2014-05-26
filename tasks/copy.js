@@ -9,6 +9,7 @@ module.exports = {
             src: [
                 'lib/**/*',
 
+                '.gitignore',
                 'index.js',
                 'package.json',
                 'Procfile',
