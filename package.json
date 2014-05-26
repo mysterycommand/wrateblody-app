@@ -1,7 +1,10 @@
 {
-  "name": "wb-node",
+  "name": "writebloodyapp",
   "version": "0.0.0",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mysterycommand/writebloodyapp.git"
+  },
   "author": {
     "name": "Matt Hayes",
     "email": "matt@mysterycommand.com",

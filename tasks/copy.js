@@ -13,6 +13,7 @@ module.exports = {
                 'index.js',
                 'package.json',
                 'Procfile',
+                'README.md',
 
                 'static/*.{htaccess,html,txt}',
                 'static/images/*'
