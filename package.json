@@ -1,0 +1,22 @@
+{
+  "name": "writebloodyapp-server",
+  "version": "0.0.0",
+  "description": "The Write Bloody App build.",
+  "repository": {},
+  "author": {
+    "name": "Matt Hayes",
+    "email": "matt@mysterycommand.com",
+    "url": "https://github.com/mysterycommand"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "compression": "^1.0.2",
+    "connect-modrewrite": "^0.7.5",
+    "express": "^4.2.0",
+    "logfmt": "^1.1.2"
+  },
+  "devDependencies": {}
+}

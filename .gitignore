@@ -1,0 +1,10 @@
+# OS Files #
+############
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Node Files #
+##############
+node_modules/
