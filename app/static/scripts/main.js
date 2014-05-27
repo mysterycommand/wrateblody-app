@@ -16,7 +16,7 @@ define(function(require) {
     var AppRouter = require('app/AppRouter');
 
     $(function() {
-        console.log('v0.1.1');
+        console.log('v0.1.2');
 
         var root = $('base').attr('href');
         root = root.substr(root.lastIndexOf('/') + 1);
