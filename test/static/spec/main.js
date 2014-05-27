@@ -25,6 +25,7 @@ define(function(require) {
     require('spec/app/views/BookItemView.test');
     require('spec/app/views/BookView.test');
     require('spec/app/views/AuthorEditorView.test');
+    require('spec/app/views/NavView.test');
     /** END TESTS */
 
     window.console = window.console || function() {};
