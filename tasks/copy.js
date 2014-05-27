@@ -10,6 +10,8 @@ module.exports = {
                 'lib/**/*',
 
                 '.gitignore',
+                '.travis.yml',
+
                 'index.js',
                 'package.json',
                 'Procfile',

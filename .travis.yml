@@ -1,26 +1,33 @@
 language: node_js
 node_js:
 - '0.10'
-notifications:
-  irc: irc.freenode.org#generator-travis-ci
 branches:
   only:
   - master
-  - heroku
 env:
   global:
   - secure: QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8=
   - GH_OWNER: mysterycommand
   - GH_PROJECT_NAME: writebloodyapp
 before_script:
-- travis/before_script.sh
+- gem update --system
+- gem install sass
+- npm install -g grunt-cli bower
 script:
-- travis/script.sh
+- bower install
+- grunt
 after_success:
-- travis/after_success.sh
-deploy:
-  provider: heroku
-  api_key:
-    secure: AkeBchwVsbKovfIZwKclGwdAKTpd+xch8oPTONtDxc6klV+dIcS/eDmC2VTX/wZwU7tP+NMAxReKDbJrn9K+n3Z7/nqa/rWG6721fk3lhh74F187bmOJ0/uMMjC2Mt9OWWVDhylUSfGHtPXMUPPPMQLItMtC2k9R8iu9XrvBOWs=
-  app:
-    heroku: writebloodyapp
+# Clone the heroku (production) branch.
+-git clone --branch=heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} heroku > /dev/null
+-cd heroku
+# Empty, then copy the build files.
+-git rm -rf .
+-cp -Rf ../dist/* .
+-cp ../dist/.* .
+-git add -f .
+# Setup the config so the commit looks right.
+-git config user.email "matt@mysterycommand.com"
+-git config user.name "Matt Hayes"
+# Commit and push (triggers new CI build, which triggers deploy to Heroku).
+-git commit -am "Travis build \"${TRAVIS_BUILD_NUMBER}\"."
+-git push -fq origin heroku > /dev/null
