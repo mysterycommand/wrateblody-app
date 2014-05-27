@@ -16,6 +16,7 @@ define(function(require) {
     var navTemplate = require('text!app/templates/navTemplate.tpl');
 
     var NavView = Bb.View.extend({
+        tagName: 'nav',
         templateFn: _.template(navTemplate),
         events: {
             'click .back': 'onClickBack'
