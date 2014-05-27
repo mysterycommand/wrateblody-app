@@ -10,36 +10,13 @@
 'use strict';
 
 define(function(require) {
-    var Bb = require('backbone');
-    var _ = require('underscore');
+    var ListView = require('app/views/ListView');
 
     var BookItemView = require('app/views/BookItemView');
 
-    // var bookListTemplate = require('text!app/templates/bookListTemplate.tpl');
-
-    var BookListView = Bb.View.extend({
-        tagName: 'ul',
-        className: 'inner by-title',
-        // templateFn: _.template(bookListTemplate),
-
-        render: function() {
-            this.$el.empty();
-            // this.$el.html(this.templateFn());
-            this.addAll();
-            return this;
-        },
-
-        addOne: function(book) {
-            var itemView = new BookItemView({
-                model: book
-            });
-
-            this.$el.find('.inner').append(itemView.render().el);
-        },
-
-        addAll: function() {
-            this.collection.each(this.addOne, this);
-        }
+    var BookListView = ListView.extend({
+        className: 'by-title',
+        ItemViewClass: BookItemView
     });
 
     return BookListView;
