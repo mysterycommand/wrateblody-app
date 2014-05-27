@@ -16,7 +16,7 @@ define(function(require) {
     var authorEditorTemplate = require('text!app/templates/authorEditorTemplate.tpl');
 
     var AuthorEditorView = Bb.View.extend({
-        el: $('#main'),
+        el: $('#app'),
         templateFn: _.template(authorEditorTemplate),
         events: {
             'click .back': 'onClickBack'

@@ -64,13 +64,17 @@ define(function(require) {
                 switch(by) {
                     case 'by-author':
                         view = new AuthorEditorView({
-                            model: authorsEditorsCollection.findWhere({slug: authorEditorOrTitle})
+                            model: authorsEditorsCollection.findWhere({slug: authorEditorOrTitle}),
+                            authorsEditors: authorsEditorsCollection,
+                            books: booksCollection
                         });
                         break;
 
                     case 'by-title':
                         view = new BookView({
-                            model: booksCollection.findWhere({slug: authorEditorOrTitle})
+                            model: booksCollection.findWhere({slug: authorEditorOrTitle}),
+                            authorsEditors: authorsEditorsCollection,
+                            books: booksCollection
                         });
                         break;
                 }

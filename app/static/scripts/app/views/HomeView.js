@@ -17,7 +17,7 @@ define(function(require) {
     var homeTemplate = require('text!app/templates/homeTemplate.tpl');
 
     var HomeView = Bb.View.extend({
-        el: $('#main'),
+        el: $('#app'),
         templateFn: _.template(homeTemplate),
 
         render: function() {

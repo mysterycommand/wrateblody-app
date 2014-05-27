@@ -17,7 +17,7 @@ define(function(require) {
     var comingSoonTemplate = require('text!app/templates/comingSoonTemplate.tpl');
 
     var ComingSoonView = Bb.View.extend({
-        el: $('#main'),
+        el: $('#app'),
         templateFn: _.template(comingSoonTemplate),
         events: {
             'click .back': 'onClickBack'

@@ -1,5 +1,9 @@
 @import "variables";
 
+html, body {
+    height: 100%%;
+}
+
 body {
     font-family: $bodyFontFamily;
 }
@@ -7,4 +11,39 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: $headFontFamily;
     font-weight: normal;
+}
+
+%flex-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+%flex-item { flex-basis: auto; }
+%flex-item-fixed { flex: 0 0 auto; }
+%flex-item-flood { flex: 1 1 auto; }
+
+@mixin position-sticky() {
+     position: -webkit-sticky;
+     position: -moz-sticky;
+     position: -ms-sticky;
+     position: -o-sticky;
+     position: sticky;
+}
+
+.container {
+    @extend %flex-container;
+}
+
+header, footer {
+    @extend %flex-item-fixed;
+    @include position-sticky();
+
+    background: #fff;
+}
+
+header { top: 0; }
+footer { bottom: 0; }
+
+main {
+    @extend %flex-item-flood;
 }

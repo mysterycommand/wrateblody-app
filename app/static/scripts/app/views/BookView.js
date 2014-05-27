@@ -16,7 +16,7 @@ define(function(require) {
     var bookTemplate = require('text!app/templates/bookTemplate.tpl');
 
     var BookView = Bb.View.extend({
-        el: $('#main'),
+        el: $('#app'),
         templateFn: _.template(bookTemplate),
         events: {
             'click .back': 'onClickBack'
