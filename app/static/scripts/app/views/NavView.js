@@ -24,14 +24,23 @@ define(function(require) {
         initialize: function NavView(/*options*/) {},
 
         render: function() {
-            this.$el.html(this.templateFn());
+            var label = (window.history.length === 2 && window.history.state === null) ? 'Home' : 'Back';
+            this.$el.html(this.templateFn({ label: label }));
             return this;
         },
 
         onClickBack: function(event) {
             event.preventDefault();
             event.stopPropagation();
-            window.history.back();
+
+            switch(event.currentTarget.hash) {
+                case '#back':
+                    window.history.back();
+                    break;
+
+                default:
+                    Bb.history.navigate('/', { trigger: true });
+            }
         }
     });
 

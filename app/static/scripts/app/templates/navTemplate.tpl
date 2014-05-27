@@ -1,5 +1,5 @@
 <nav>
     <ul>
-        <li><a href="#back" class="back">Back</a></li>
+        <li><a href="#<%= label.toLowerCase() %>" class="back"><%= label %></a></li>
     </ul>
 </nav>
