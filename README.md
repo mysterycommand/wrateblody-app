@@ -1,1 +1,1 @@
-# The [Write Bloody App](http://writebloodyapp.heroku.com)
+# The [Write Bloody App](http://writebloodyapp.heroku.com) [![Build Status](https://travis-ci.org/mysterycommand/writebloodyapp.svg?branch=heroku)](https://travis-ci.org/mysterycommand/writebloodyapp)
