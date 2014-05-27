@@ -1,12 +1,6 @@
 language: node_js
 node_js:
     - '0.10'
-# deploy:
-#     provider: heroku
-#     api_key:
-#         secure: DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw=
-#     app: writebloodyapp
-#     on: heroku
 notifications:
     irc: "irc.freenode.org#generator-travis-ci"
 branches:
@@ -14,6 +8,7 @@ branches:
         - master
 env:
     global:
+        - secure: "DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw="
         - secure: "QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8="
         - GH_OWNER: mysterycommand
         - GH_PROJECT_NAME: writebloodyapp
@@ -25,15 +20,16 @@ script:
     - bower install
     - grunt
 after_success:
-    - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
-    - cd site
-    - if git checkout heroku; then git checkout --orphan heroku; fi
-    - git rm -r .
+    - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site/
+    - cd site/
+    - git checkout --orphan heroku
+    - git rm -rf .
     - cp -R ../dist/* .
     - cp ../dist/.* .
-    - git add -f .
-    - git config user.email "matt@mysterycommand.com"
-    - git config user.name "Matt Hayes"
-    - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:heroku > /dev/null 2>&1
-    - git push heroku heroku:master > /dev/null 2>&1
+    - git add .
+    - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}."
+    - heroku git:remote -a ${GH_PROJECT_NAME}
+    - heroku keys:clear
+    - yes | heroku keys:add
+    - yes | git push heroku heroku:master
