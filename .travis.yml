@@ -25,9 +25,9 @@ script:
     - bower install
     - grunt
 after_success:
-    - git submodule add -b heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+    - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
-    - if git checkout heroku; then git checkout -b heroku; fi
+    - if git checkout heroku; then git checkout --orphan heroku; fi
     - git rm -r .
     - cp -R ../dist/* .
     - cp ../dist/.* .

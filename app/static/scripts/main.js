@@ -16,13 +16,14 @@ define(function(require) {
     var AppRouter = require('app/AppRouter');
 
     $(function() {
+        console.log('v0.1.0');
+
         var root = $('base').attr('href');
         root = root.substr(root.lastIndexOf('/') + 1);
 
         var app = new AppRouter();
         Object.keys(app.routes).forEach(function(route) {
             app.route(root + route, app.routes[route]);
-            console.log(root + route, route, app.routes[route]);
         });
         Bb.history.start({ pushState: true });
 
