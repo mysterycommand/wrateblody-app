@@ -32,4 +32,4 @@ after_success:
     - heroku git:remote -a ${GH_PROJECT_NAME}
     - heroku keys:clear
     - yes | heroku keys:add
-    - yes | git push -f heroku heroku:master
+    - yes | yes | git push -f heroku heroku:master
