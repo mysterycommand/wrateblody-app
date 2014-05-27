@@ -14,24 +14,23 @@ define(function(require) {
     var Bb = require('backbone');
     var _ = require('underscore');
 
+    var NavView = require('app/views/NavView');
+
     var comingSoonTemplate = require('text!app/templates/comingSoonTemplate.tpl');
 
     var ComingSoonView = Bb.View.extend({
         el: $('#app'),
         templateFn: _.template(comingSoonTemplate),
-        events: {
-            'click .back': 'onClickBack'
+
+        initialize: function(/*options*/) {
+            this.navView = new NavView();
         },
 
         render: function() {
-            this.$el.html(this.templateFn());
+            this.$el.empty();
+            this.$el.append(this.navView.render().el);
+            this.$el.append(this.templateFn());
             return this;
-        },
-
-        onClickBack: function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            window.history.back();
         }
     });
 

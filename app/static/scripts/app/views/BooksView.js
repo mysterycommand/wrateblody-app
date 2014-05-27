@@ -16,6 +16,7 @@ define(function(require) {
 
     var AuthorEditorListView = require('app/views/AuthorEditorListView');
     var BookListView = require('app/views/BookListView');
+    var NavView = require('app/views/NavView');
 
     var booksTemplate = require('text!app/templates/booksTemplate.tpl');
 
@@ -23,13 +24,14 @@ define(function(require) {
         el: $('#app'),
         templateFn: _.template(booksTemplate),
         events: {
-            'click .back': 'onClickBack',
             'click .sort-by': 'onClickSortBy'
         },
 
         initialize: function(options) {
             // this.authorsEditors = options.authorsEditors;
             // this.books = options.books;
+
+            this.navView = new NavView();
 
             this.listViews = {
                 'by-author': new AuthorEditorListView({
@@ -44,17 +46,13 @@ define(function(require) {
         render: function() {
             this.$el.html(this.templateFn());
 
+            this.$el.find('header').html(this.navView.render().el);
+
             var sortBy = location.pathname.split('/').pop();
             this.$el.find('#' + sortBy).prop('checked', true);
             this.$el.find('.list-view').empty().append(this.listViews[sortBy].render().el);
 
             return this;
-        },
-
-        onClickBack: function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            window.history.back();
         },
 
         onClickSortBy: function(event) {
