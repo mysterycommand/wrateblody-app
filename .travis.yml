@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '0.10'
+branches:
+  only:
+  - heroku
+script:
+- exit 0
+deploy:
+  provider: heroku
+  api_key:
+    secure: AkeBchwVsbKovfIZwKclGwdAKTpd+xch8oPTONtDxc6klV+dIcS/eDmC2VTX/wZwU7tP+NMAxReKDbJrn9K+n3Z7/nqa/rWG6721fk3lhh74F187bmOJ0/uMMjC2Mt9OWWVDhylUSfGHtPXMUPPPMQLItMtC2k9R8iu9XrvBOWs=
+  app:
+    heroku: writebloodyapp
