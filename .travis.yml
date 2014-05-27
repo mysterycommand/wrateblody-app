@@ -8,7 +8,7 @@ branches:
         - master
 env:
     global:
-        - secure: "DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw="
+        - secure: "SN1z9vBIzQvSKFlGra0Sfa3P14tR1p8iPw+nKWF/a0qfG6gsHHYEh2VYpNx+Wihy/dkvU0C3GAfUWWe/tzqHdzP/c+QqjdmTLvJ0dFJLmPKiFEhu6CnqZXpMuF2dF8RXA7wkeie4RssHb8ijx3c4J0dy2413ziq9NYIN5qvaN+k="
         - secure: "QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8="
         - GH_OWNER: mysterycommand
         - GH_PROJECT_NAME: writebloodyapp
@@ -32,4 +32,4 @@ after_success:
     - heroku git:remote -a ${GH_PROJECT_NAME}
     - heroku keys:clear
     - yes | heroku keys:add
-    - yes | git push heroku heroku:master
+    - yes | git push -f heroku heroku:master
