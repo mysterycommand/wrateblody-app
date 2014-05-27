@@ -1,35 +1,26 @@
 language: node_js
 node_js:
-    - '0.10'
+- '0.10'
 notifications:
-    irc: "irc.freenode.org#generator-travis-ci"
+  irc: irc.freenode.org#generator-travis-ci
 branches:
-    only:
-        - master
+  only:
+  - master
+  - heroku
 env:
-    global:
-        - secure: "SN1z9vBIzQvSKFlGra0Sfa3P14tR1p8iPw+nKWF/a0qfG6gsHHYEh2VYpNx+Wihy/dkvU0C3GAfUWWe/tzqHdzP/c+QqjdmTLvJ0dFJLmPKiFEhu6CnqZXpMuF2dF8RXA7wkeie4RssHb8ijx3c4J0dy2413ziq9NYIN5qvaN+k="
-        - secure: "QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8="
-        - GH_OWNER: mysterycommand
-        - GH_PROJECT_NAME: writebloodyapp
+  global:
+  - secure: QsRsFEIP7IGJDSLeSFDsJp+sO4xXZv7mJXsEDr31Iso82qSZMjH538m6/IUNK8kjPG82xh/cmW4TtsQnAv1EwZHC9ls9FQYJTyCkmheVpSmZqd7FcLbLhfTI6tIcW6UNqEUsvQ+GAIZRgNKHqCdeWD2ah0ONWoe3V+ATqHuxBr8=
+  - GH_OWNER: mysterycommand
+  - GH_PROJECT_NAME: writebloodyapp
 before_script:
-    - gem update --system
-    - gem install sass
-    - npm install -g grunt-cli bower
+- travis/before_script.sh
 script:
-    - bower install
-    - grunt
+- travis/script.sh
 after_success:
-    - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-    - git clone https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site/
-    - cd site/
-    - git checkout --orphan heroku
-    - git rm -rf .
-    - cp -R ../dist/* .
-    - cp ../dist/.* .
-    - git add .
-    - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}."
-    - heroku git:remote -a ${GH_PROJECT_NAME}
-    - heroku keys:clear
-    - yes | heroku keys:add
-    - yes | yes | git push -f heroku heroku:master
+- travis/after_success.sh
+deploy:
+  provider: heroku
+  api_key:
+    secure: AkeBchwVsbKovfIZwKclGwdAKTpd+xch8oPTONtDxc6klV+dIcS/eDmC2VTX/wZwU7tP+NMAxReKDbJrn9K+n3Z7/nqa/rWG6721fk3lhh74F187bmOJ0/uMMjC2Mt9OWWVDhylUSfGHtPXMUPPPMQLItMtC2k9R8iu9XrvBOWs=
+  app:
+    heroku: writebloodyapp
