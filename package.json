@@ -1,6 +1,6 @@
 {
   "name": "writebloodyapp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The Write Bloody App server and client source.",
   "repository": {
     "type": "git",
