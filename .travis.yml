@@ -18,16 +18,16 @@ script:
 - grunt
 after_success:
 # Clone the heroku (production) branch.
--git clone --branch=heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} heroku > /dev/null
--cd heroku
+- git clone --branch=heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} heroku > /dev/null
+- cd heroku
 # Empty, then copy the build files.
--git rm -rf .
--cp -Rf ../dist/* .
--cp ../dist/.* .
--git add -f .
+- git rm -rf .
+- cp -Rf ../dist/* .
+- cp ../dist/.* .
+- git add -f .
 # Setup the config so the commit looks right.
--git config user.email "matt@mysterycommand.com"
--git config user.name "Matt Hayes"
+- git config user.email "matt@mysterycommand.com"
+- git config user.name "Matt Hayes"
 # Commit and push (triggers new CI build, which triggers deploy to Heroku).
--git commit -am "Travis build \"${TRAVIS_BUILD_NUMBER}\"."
--git push -fq origin heroku > /dev/null
+- git commit -am "Travis build \"${TRAVIS_BUILD_NUMBER}\"."
+- git push -fq origin heroku > /dev/null
