@@ -26,9 +26,8 @@ define(function(require) {
         },
 
         render: function() {
-            this.$el.empty();
-            this.$el.append(this.navView.render().el);
-            this.$el.append(this.templateFn(this.model.attributes));
+            this.$el.html(this.templateFn(this.model.attributes));
+            this.$el.find('header').html(this.navView.render().el);
             return this;
         }
     });
