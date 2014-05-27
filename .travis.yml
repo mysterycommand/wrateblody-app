@@ -1,12 +1,12 @@
 language: node_js
 node_js:
     - '0.10'
-deploy:
-    provider: heroku
-    api_key:
-        secure: DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw=
-    app: writebloodyapp
-    on: heroku
+# deploy:
+#     provider: heroku
+#     api_key:
+#         secure: DgB+FXHoEYKSrgtDusF9AdL6axc1O6Yu26RxPUY65IAXPuz68H/G3uwnE2mI31XnBkf8wuVBR39vNq9G79kCnXtcwKfYpiMG6ldeokgtsK7Ox3JLscWUrR/5XGUPKElxOysD1JgJu2MJHe5SmVPTBYb5UZo1YvkRAztU5++vZSw=
+#     app: writebloodyapp
+#     on: heroku
 notifications:
     irc: "irc.freenode.org#generator-travis-ci"
 branches:
@@ -24,15 +24,16 @@ before_script:
 script:
     - bower install
     - grunt
-# after_success:
-#     - git submodule add -b heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
-#     - cd site
-#     - if git checkout heroku; then git checkout -b heroku; fi
-#     - git rm -r .
-#     - cp -R ../dist/* .
-#     - cp ../dist/.* .
-#     - git add -f .
-#     - git config user.email "matt@mysterycommand.com"
-#     - git config user.name "Matt Hayes"
-#     - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
-#     - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:heroku > /dev/null 2>&1
+after_success:
+    - git submodule add -b heroku https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+    - cd site
+    - if git checkout heroku; then git checkout -b heroku; fi
+    - git rm -r .
+    - cp -R ../dist/* .
+    - cp ../dist/.* .
+    - git add -f .
+    - git config user.email "matt@mysterycommand.com"
+    - git config user.name "Matt Hayes"
+    - git commit -am "Travis build ${TRAVIS_BUILD_NUMBER}. [ci skip]"
+    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:heroku > /dev/null 2>&1
+    - git push heroku heroku:master > /dev/null 2>&1
