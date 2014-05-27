@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "${TRAVIS_BRANCH}" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+if [ "${TRAVIS_BRANCH}" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
   gem update --system
   gem install sass
