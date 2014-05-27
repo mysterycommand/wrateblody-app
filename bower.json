@@ -1,6 +1,6 @@
 {
-  "name": "wb-node",
-  "version": "0.0.0",
+  "name": "writebloodyapp",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {},
   "devDependencies": {
