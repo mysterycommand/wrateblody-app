@@ -15,13 +15,16 @@ define(function(require) {
 
     var BookItemView = require('app/views/BookItemView');
 
-    var bookListTemplate = require('text!app/templates/bookListTemplate.tpl');
+    // var bookListTemplate = require('text!app/templates/bookListTemplate.tpl');
 
     var BookListView = Bb.View.extend({
-        templateFn: _.template(bookListTemplate),
+        tagName: 'ul',
+        className: 'inner by-title',
+        // templateFn: _.template(bookListTemplate),
 
         render: function() {
-            this.$el.html(this.templateFn());
+            this.$el.empty();
+            // this.$el.html(this.templateFn());
             this.addAll();
             return this;
         },
