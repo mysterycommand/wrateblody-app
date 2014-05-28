@@ -5,6 +5,7 @@
         <%= title %>
         <% if (url) { %></a><% } %>
     </h2>
+    <img src="<%= coverImageURL %>" alt="<%= title %>">
     <% if (authors.length) { %>
     <h4>by
         <% _.each(authors, function(author, i, l) { %>
@@ -23,6 +24,7 @@
         <% }); %>
     </h4>
     <% } %>
+    <p><%= description %></p>
 </main>
 <footer></footer>
 

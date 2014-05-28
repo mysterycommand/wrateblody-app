@@ -30,6 +30,8 @@ define(function(require) {
             var book = {
                 title: this.model.get('title'),
                 url: this.model.get('url'),
+                coverImageURL: this.model.get('coverImageURL'),
+                description: this.model.get('description'),
                 authors: this.model.get('authorIds').map(function(authorId) {
                     return this.authorsEditors.get(authorId).attributes;
                 }.bind(this)),
