@@ -75,20 +75,10 @@ nav {
 }
 
 menu {
-    font-size: 0.1px;
+    @include justify-rwd;
+
     margin: 0;
     padding: 0;
-    text-align: justify;
-
-    &>* {
-        font-size: $fontSize;
-    }
-
-    &:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-    }
 
     &>li {
         display: inline-block;

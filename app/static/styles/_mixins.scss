@@ -25,3 +25,18 @@
     position: absolute;
     width: 1px;
 }
+
+@mixin justify-rwd {
+    font-size: 0.1px;
+    text-align: justify;
+
+    &>* {
+        font-size: $fontSize;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
