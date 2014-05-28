@@ -21,12 +21,20 @@ define(function(require) {
         el: $('#app'),
         templateFn: _.template(authorEditorTemplate),
 
-        initialize: function(/*options*/) {
+        initialize: function(options) {
+            this.books = options.books;
             this.navView = new NavView();
         },
 
         render: function() {
-            this.$el.html(this.templateFn(this.model.attributes));
+            var authorEditor = {
+                listName: this.model.get('listName'),
+                url: this.model.get('url'),
+                books: this.model.get('bookIds').map(function(bookId) {
+                    return this.books.get(bookId).attributes;
+                }.bind(this))
+            };
+            this.$el.html(this.templateFn(authorEditor));
             this.$el.find('header').html(this.navView.render().el);
             return this;
         }

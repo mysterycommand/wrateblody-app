@@ -65,7 +65,6 @@ define(function(require) {
                     case 'by-author':
                         view = new AuthorEditorView({
                             model: authorsEditorsCollection.findWhere({slug: authorEditorOrTitle}),
-                            authorsEditors: authorsEditorsCollection,
                             books: booksCollection
                         });
                         break;
@@ -73,8 +72,7 @@ define(function(require) {
                     case 'by-title':
                         view = new BookView({
                             model: booksCollection.findWhere({slug: authorEditorOrTitle}),
-                            authorsEditors: authorsEditorsCollection,
-                            books: booksCollection
+                            authorsEditors: authorsEditorsCollection
                         });
                         break;
                 }
