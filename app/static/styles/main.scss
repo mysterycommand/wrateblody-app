@@ -26,6 +26,7 @@ header, footer {
     @include position-sticky;
 
     background: #fff;
+    text-align: center;
 }
 
 header {
@@ -60,10 +61,7 @@ li li {
 }
 
 nav {
-    li {
-        text-align: center;
-    }
-
+    li { text-align: center; }
     a {
         display: inline-block;
         padding: 1em 0;
