@@ -16,6 +16,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
     @include flex-container;
+
+    min-height: 100%;
 }
 
 header, footer {
@@ -38,6 +40,8 @@ footer {
 main {
     @include flex-item-flood;
 
+    min-height: 100%;
+
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
@@ -54,14 +58,55 @@ li li {
     display: inline-block;
 }
 
-nav li { text-align: center; }
+nav {
+    li {
+        text-align: center;
+    }
 
-nav a {
-    display: inline-block;
-    padding: 1em 0;
-    width: 100%;
+    a {
+        display: inline-block;
+        padding: 1em 0;
+        width: 100%;
+    }
 }
 
 .list-view li:nth-child(odd) {
     background: lightgrey;
+}
+
+menu {
+    font-size: 0.1px;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+
+    &>* {
+        font-size: $fontSize;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+
+    &>li {
+        display: inline-block;
+        text-align: center;
+        width: 49.5%;
+    }
+
+    input {
+        @include hidden-accessible;
+
+        &[checked="checked"]+label {
+            background: lightgrey;
+        }
+    }
+
+    label {
+        display: inline-block;
+        padding: 1em 0;
+        width: 100%;
+    }
 }

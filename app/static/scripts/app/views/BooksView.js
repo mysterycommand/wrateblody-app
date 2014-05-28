@@ -49,7 +49,7 @@ define(function(require) {
             this.$el.find('header').html(this.navView.render().el);
 
             var sortBy = location.pathname.split('/').pop();
-            this.$el.find('#' + sortBy).prop('checked', true);
+            this.$el.find('#' + sortBy).attr('checked', true);
             this.$el.find('.list-view').empty().append(this.listViews[sortBy].render().el);
 
             return this;
@@ -60,6 +60,8 @@ define(function(require) {
             Bb.history.navigate('books/' + event.target.id, { replace: true });
 
             var sortBy = location.pathname.split('/').pop();
+            this.$el.find('[checked="checked"]').attr('checked', false);
+            this.$el.find('#' + sortBy).attr('checked', true);
             this.$el.find('.list-view').empty().append(this.listViews[sortBy].render().el);
         }
     });
