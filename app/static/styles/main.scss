@@ -6,6 +6,7 @@ html, body {
 }
 
 body {
+    color: $copy;
     font-family: $bodyFontFamily;
 }
 
@@ -89,8 +90,10 @@ menu {
     input {
         @include hidden-accessible;
 
+        &+label { color: $lght; }
         &[checked="checked"]+label {
-            background: lightgrey;
+            background: $bkgd;
+            color: $dark;
         }
     }
 

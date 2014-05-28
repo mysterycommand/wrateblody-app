@@ -11,4 +11,6 @@
     </nav>
 </main>
 <!-- <aside role="complimentary"></aside> -->
-<footer role="contentinfo">&copy; 2014 <a href="http://writebloody.com/">Write Bloody</a>.</footer>
+<footer role="contentinfo">
+    <h3>&copy; 2014 <a href="http://writebloody.com/">Write Bloody</a>.</h3>
+</footer>
