@@ -5,11 +5,13 @@
         <%= listName %>
         <% if (url) { %></a><% } %>
     </h2>
-    <ul>
-        <% _.each(books, function(book) { %>
-        <li><a href="books/by-title/<%= book.slug %>"><%= book.title %></a></li>
+    <h4>author of
+        <% _.each(books, function(book, i, l) { %>
+        <a href="books/by-title/<%= book.slug %>"><%= book.title %></a><% if (i === l.length - 2) { %> and
+            <% } else if (i < l.length - 2) { %>,
+            <% } %>
         <% }); %>
-    </ul>
+    </h4>
 </main>
 <footer></footer>
 
