@@ -15,6 +15,7 @@ require.config({
         jquery: '/bower_components/jquery/dist/jquery',
         backbone: '/bower_components/backbone/backbone',
         underscore: '/bower_components/underscore/underscore',
+        handlebars: '/bower_components/handlebars/handlebars.runtime.amd',
         text: '/bower_components/requirejs-text/text'
     },
     shim: {
