@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "fonts";
 
 html, body {
     height: 100%%;
@@ -8,6 +9,7 @@ html, body {
 body {
     color: $copy;
     font-family: $bodyFontFamily;
+    text-transform: uppercase;
 }
 
 h1, h2, h3, h4, h5, h6 {
