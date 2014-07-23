@@ -16,7 +16,11 @@
     "compression": "^1.0.2",
     "connect-modrewrite": "^0.7.5",
     "express": "^4.2.0",
-    "logfmt": "^1.1.2"
+    "logfmt": "^1.1.2",
+    "passport": "^0.2.0",
+    "passport-facebook": "^1.0.3",
+    "passport-twitter": "^1.0.2",
+    "pg": "^3.4.0"
   },
   "devDependencies": {}
 }
