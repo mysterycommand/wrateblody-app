@@ -7,8 +7,12 @@ html, body {
 }
 
 body {
+    
+    background: $bkgd;
     color: $copy;
     font-family: $bodyFontFamily;
+    letter-spacing: 3px;
+    line-height: 150%;
     text-transform: uppercase;
 }
 
@@ -27,11 +31,12 @@ header, footer {
     @include flex-item-fixed;
     @include position-sticky;
 
-    background: #fff;
+    background: $bkgd ;
     text-align: center;
 }
 
 header {
+
     border-bottom: 1px solid grey;
     top: 0;
 }
@@ -39,6 +44,8 @@ header {
 footer {
     border-top: 1px solid grey;
     bottom: 0;
+    color: $copy;
+    font-family: $headFontFamily;
 }
 
 main {
@@ -54,7 +61,7 @@ main {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px 0px 0px 20px;
 }
 
 ul ul,
@@ -63,21 +70,24 @@ li li {
 }
 
 nav {
+
     li { text-align: center; }
+
     a {
+
         display: inline-block;
+        font-family: $headFontFamily;
         padding: 1em 0;
         width: 100%;
     }
 }
 
 .list-view li:nth-child(odd) {
-    background: lightgrey;
+    background: $bkgd;
 }
 
 menu {
     @include justify-rwd;
-
     margin: 0;
     padding: 0;
 
@@ -90,10 +100,10 @@ menu {
     input {
         @include hidden-accessible;
 
-        &+label { color: $lght; }
+        &+label { color: $bkgd; }
         &[checked="checked"]+label {
             background: $bkgd;
-            color: $dark;
+            color: $bkgd;
         }
     }
 
@@ -102,4 +112,5 @@ menu {
         padding: 1em 0;
         width: 100%;
     }
+
 }
