@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-    
+
     background: $bkgd;
     color: $copy;
     font-family: $bodyFontFamily;
@@ -94,16 +94,16 @@ menu {
     &>li {
         display: inline-block;
         text-align: center;
-        width: 49.9%;
+        width: 49.5%;
     }
 
     input {
         @include hidden-accessible;
 
-        &+label { color: $bkgd; }
+        &+label { color: $copy; }
         &[checked="checked"]+label {
             background: $bkgd;
-            color: $bkgd;
+            color: $copy;
         }
     }
 
